@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -70,7 +70,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '7.1.2',
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="尽管java sdk已经给我们提供了很强大的各种集合类数据结构，但 android 为了减少内存的使用和装箱拆箱损耗的性能，还提供一些特有的数据接口，主要分布在 android.util包下面，下面逐个看看有什么？  ArrayMap ArraySet SparseArray SparseIntArray SparseBooleanArray SparseLongArray  1、ArrayMap">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/05/23/hello-world/index.html">
+<meta property="og:title" content="Android 那些单独提供的更好的数据结构">
+<meta property="og:url" content="http://yoursite.com/2019/06/02/Android-那些性能更好的数据结构/index.html">
 <meta property="og:site_name" content="Jiquan Home">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="尽管java sdk已经给我们提供了很强大的各种集合类数据结构，但 android 为了减少内存的使用和装箱拆箱损耗的性能，还提供一些特有的数据接口，主要分布在 android.util包下面，下面逐个看看有什么？  ArrayMap ArraySet SparseArray SparseIntArray SparseBooleanArray SparseLongArray  1、ArrayMap">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-22T16:08:45.000Z">
+<meta property="og:updated_time" content="2019-06-02T14:17:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Android 那些单独提供的更好的数据结构">
+<meta name="twitter:description" content="尽管java sdk已经给我们提供了很强大的各种集合类数据结构，但 android 为了减少内存的使用和装箱拆箱损耗的性能，还提供一些特有的数据接口，主要分布在 android.util包下面，下面逐个看看有什么？  ArrayMap ArraySet SparseArray SparseIntArray SparseBooleanArray SparseLongArray  1、ArrayMap">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/23/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/02/Android-那些性能更好的数据结构/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>Hello World | Jiquan Home</title>
+  <title>Android 那些单独提供的更好的数据结构 | Jiquan Home</title>
   
 
 
@@ -227,6 +227,57 @@
         
         
           
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
 
     
@@ -245,9 +296,6 @@
       
     </ul>
   
-
-  
-    
 
   
 
@@ -270,6 +318,9 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+            
+
+          
           <div id="content" class="content">
             
 
@@ -289,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/Android-那些性能更好的数据结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="继泉同学">
@@ -306,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World
+          <h1 class="post-title" itemprop="name headline">Android 那些单独提供的更好的数据结构
 
               
             
@@ -332,9 +383,13 @@
                 
               
 
-              <time title="Created: 2019-05-23 00:08:45" itemprop="dateCreated datePublished" datetime="2019-05-23T00:08:45+08:00">2019-05-23</time>
+              <time title="Created: 2019-06-02 21:30:01 / Modified: 22:17:53" itemprop="dateCreated datePublished" datetime="2019-06-02T21:30:01+08:00">2019-06-02</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -367,15 +422,26 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>尽管java sdk已经给我们提供了很强大的各种集合类数据结构，但 android 为了减少内存的使用和装箱拆箱损耗的性能，还提供一些特有的数据接口，<br>主要分布在 android.util包下面，下面逐个看看有什么？</p>
+<ul>
+<li>ArrayMap</li>
+<li>ArraySet</li>
+<li>SparseArray</li>
+<li>SparseIntArray</li>
+<li>SparseBooleanArray</li>
+<li>SparseLongArray</li>
+</ul>
+<h2 id="1、ArrayMap"><a href="#1、ArrayMap" class="headerlink" title="1、ArrayMap"></a>1、ArrayMap</h2><p> <em>主要作用： 在数据少时替代HashMap</em><br> 实现原理：<br>  主要是使用了2个数组，一个数组存储key生成的hash 整型值； 一个数组以object 形式，同时存储key 与 value；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//第一个数组：保存key的hash值；</span><br><span class="line">int[] mHashes;</span><br><span class="line">//第二个数组，同时保存key和value；</span><br><span class="line">Object[] mArray;</span><br></pre></td></tr></table></figure></p>
+<p>举个例子，当放进一个 key=A, value = B 的值时，mHashs里存放A的哈希码， mArray[0] = A, mArray[1] = B;<br>为什么会有ArrayMap 呢？ 是因为Google 觉得HashMap 的容量扩展策略容易浪费内存，在一开始无数据时HashMap 都会初始化容量为16，并分配相关内存，<br>尽管无数据时，并不会占用太多内存，但依然占用了不必要的内存；</p>
+<p>而 ArrayMap则不一样，每次增加数据只需要把数组的长度相应 + 1 或者+2 即可；<br>所以它的最大好处就是节省内存；<br>缺点是： 缺失了HashMap 的链表 + 数组 的快速查找定位能力，查找是通过二分法查找的，在大量数据时，性能比 HashMap差，因此只适合在数据量少（如低于1000）时使用；</p>
+<p>HashMap 之所以强大，就是因为集成了 数组查找快 、链表插入以及删除快的优点；而单纯的数组在插入以及删除时比较慢；</p>
+<h2 id="2、ArraySet"><a href="#2、ArraySet" class="headerlink" title="2、ArraySet"></a>2、ArraySet</h2><p> 同样是为了节省内存分配，同理于ArrayMap， 只是把Map 替换成Set，只保存value，value唯一；<br> 用处： 在数据量少时代替 HashSet；<br> 实现原理与 ArrayMap 相同，不同的是 实现了Set接口而已；</p>
+<h2 id="3、SparseArray"><a href="#3、SparseArray" class="headerlink" title="3、SparseArray"></a>3、SparseArray</h2><p>用来替换  HashMap&lt;Integer,E&gt;，实现原理跟 ArrayMap 相同；</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h3><pre><code>避免int类型的键自动装箱
+相较于HashMap使用Node，这样的设计使用更小的存储单元即可存储key到value的映射
+</code></pre><h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><pre><code>在进行元素查找时使用二分查找，元素较多（官方注释是大于1000）时，查找效率较低；
+在进行元素的添加和删除时，可能会频繁进行元素的移动，运行效率可能会降低
+</code></pre><p>剩下几个 SparseIntArray 、SparseBooleanArray 、SparseLongArray 都是类似，不再赘述。</p>
 
       
     </div>
@@ -509,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、ArrayMap"><span class="nav-number">1.</span> <span class="nav-text">1、ArrayMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、ArraySet"><span class="nav-number">2.</span> <span class="nav-text">2、ArraySet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、SparseArray"><span class="nav-number">3.</span> <span class="nav-text">3、SparseArray</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">3.1.</span> <span class="nav-text">优点:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点："><span class="nav-number">3.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -550,7 +616,7 @@
 
 
 
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.1.2</div>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.2</div>
 
 
 
@@ -638,7 +704,9 @@
   
 
 
-  <script src="/js/schemes/muse.js?v=7.1.2"></script>
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
 
 
 
