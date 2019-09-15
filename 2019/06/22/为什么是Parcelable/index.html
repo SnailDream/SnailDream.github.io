@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="尽管java sdk已经给我们提供了很强大的各种集合类数据结构，但 android 为了减少内存的使用和装箱拆箱损耗的性能，还提供一些特有的数据接口，主要分布在 android.util包下面，下面逐个看看有什么？  ArrayMap ArraySet SparseArray SparseIntArray SparseBooleanArray SparseLongArray  1、ArrayMap">
+  <meta name="description" content="为什么是 Parcelable ？首先，理解一个基础知识点，linux内核是分为内核空间和用户空间的， 其中内核空间是被内核系统所使用，而用户空间则是属于应用程序使用的；为什么这么划分，而不是把所有空间都分给应用程序呢？ 因为系统是公共的，只有一个，而应用程序是有很多个，来自不同的开发者；如果某个应用程序导致所有空间不可用，那么系统就完全死了；而内核空间的隔离保证了系统的稳定性。  再说序列化，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 那些性能更好的数据结构">
-<meta property="og:url" content="http://yoursite.com/2019/06/02/Android-那些性能更好的数据结构/index.html">
+<meta property="og:title" content="深入了解 Android 中的数据传输 Parcelable">
+<meta property="og:url" content="http://yoursite.com/2019/06/22/为什么是Parcelable/index.html">
 <meta property="og:site_name" content="Jiquan Home">
-<meta property="og:description" content="尽管java sdk已经给我们提供了很强大的各种集合类数据结构，但 android 为了减少内存的使用和装箱拆箱损耗的性能，还提供一些特有的数据接口，主要分布在 android.util包下面，下面逐个看看有什么？  ArrayMap ArraySet SparseArray SparseIntArray SparseBooleanArray SparseLongArray  1、ArrayMap">
+<meta property="og:description" content="为什么是 Parcelable ？首先，理解一个基础知识点，linux内核是分为内核空间和用户空间的， 其中内核空间是被内核系统所使用，而用户空间则是属于应用程序使用的；为什么这么划分，而不是把所有空间都分给应用程序呢？ 因为系统是公共的，只有一个，而应用程序是有很多个，来自不同的开发者；如果某个应用程序导致所有空间不可用，那么系统就完全死了；而内核空间的隔离保证了系统的稳定性。  再说序列化，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-02T14:38:16.000Z">
+<meta property="og:updated_time" content="2019-09-15T09:42:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 那些性能更好的数据结构">
-<meta name="twitter:description" content="尽管java sdk已经给我们提供了很强大的各种集合类数据结构，但 android 为了减少内存的使用和装箱拆箱损耗的性能，还提供一些特有的数据接口，主要分布在 android.util包下面，下面逐个看看有什么？  ArrayMap ArraySet SparseArray SparseIntArray SparseBooleanArray SparseLongArray  1、ArrayMap">
+<meta name="twitter:title" content="深入了解 Android 中的数据传输 Parcelable">
+<meta name="twitter:description" content="为什么是 Parcelable ？首先，理解一个基础知识点，linux内核是分为内核空间和用户空间的， 其中内核空间是被内核系统所使用，而用户空间则是属于应用程序使用的；为什么这么划分，而不是把所有空间都分给应用程序呢？ 因为系统是公共的，只有一个，而应用程序是有很多个，来自不同的开发者；如果某个应用程序导致所有空间不可用，那么系统就完全死了；而内核空间的隔离保证了系统的稳定性。  再说序列化，">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/06/02/Android-那些性能更好的数据结构/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/22/为什么是Parcelable/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>Android 那些性能更好的数据结构 | Jiquan Home</title>
+  <title>深入了解 Android 中的数据传输 Parcelable | Jiquan Home</title>
   
 
 
@@ -340,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/Android-那些性能更好的数据结构/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/22/为什么是Parcelable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="继泉同学">
@@ -357,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Android 那些性能更好的数据结构
+          <h1 class="post-title" itemprop="name headline">深入了解 Android 中的数据传输 Parcelable
 
               
             
@@ -383,12 +383,24 @@
                 
               
 
-              <time title="Created: 2019-06-02 21:30:01 / Modified: 22:38:16" itemprop="dateCreated datePublished" datetime="2019-06-02T21:30:01+08:00">2019-06-02</time>
+              <time title="Created: 2019-06-22 21:30:01" itemprop="dateCreated datePublished" datetime="2019-06-22T21:30:01+08:00">2019-06-22</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-09-15 17:42:38" itemprop="dateModified" datetime="2019-09-15T17:42:38+08:00">2019-09-15</time>
               
             
           </span>
@@ -422,26 +434,20 @@
       
 
       
-        <p>尽管java sdk已经给我们提供了很强大的各种集合类数据结构，但 android 为了减少内存的使用和装箱拆箱损耗的性能，还提供一些特有的数据接口，<br>主要分布在 android.util包下面，下面逐个看看有什么？</p>
-<ul>
-<li>ArrayMap</li>
-<li>ArraySet</li>
-<li>SparseArray</li>
-<li>SparseIntArray</li>
-<li>SparseBooleanArray</li>
-<li>SparseLongArray</li>
-</ul>
-<h2 id="1、ArrayMap"><a href="#1、ArrayMap" class="headerlink" title="1、ArrayMap"></a>1、ArrayMap</h2><p> <em>主要作用： 在数据少时替代HashMap</em><br> 实现原理：<br>  主要是使用了2个数组，一个数组存储key生成的hash 整型值； 一个数组以object 形式，同时存储key 与 value；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//第一个数组：保存key的hash值；</span><br><span class="line">int[] mHashes;</span><br><span class="line">//第二个数组，同时保存key和value；</span><br><span class="line">Object[] mArray;</span><br></pre></td></tr></table></figure></p>
-<p>举个例子，当放进一个 key=A, value = B 的值时，mHashs里存放A的哈希码， mArray[0] = A, mArray[1] = B;<br>为什么会有ArrayMap 呢？ 是因为Google 觉得HashMap 的容量扩展策略容易浪费内存，在一开始无数据时HashMap 都会初始化容量为16，并分配相关内存，<br>尽管无数据时，并不会占用太多内存，但依然占用了不必要的内存；</p>
-<p>而 ArrayMap则不一样，每次增加数据只需要把数组的长度相应 + 1 或者+2 即可；<br>所以它的最大好处就是节省内存；<br>缺点是： 缺失了HashMap 的链表 + 数组 的快速查找定位能力，查找是通过二分法查找的，在大量数据时，性能比 HashMap差，因此只适合在数据量少（如低于1000）时使用；</p>
-<p>HashMap 之所以强大，就是因为集成了 数组查找快 、链表插入以及删除快的优点；而单纯的数组在插入以及删除时比较慢；</p>
-<h2 id="2、ArraySet"><a href="#2、ArraySet" class="headerlink" title="2、ArraySet"></a>2、ArraySet</h2><p> 同样是为了节省内存分配，同理于ArrayMap， 只是把Map 替换成Set，只保存value，value唯一；<br> 用处： 在数据量少时代替 HashSet；<br> 实现原理与 ArrayMap 相同，不同的是 实现了Set接口而已；</p>
-<h2 id="3、SparseArray"><a href="#3、SparseArray" class="headerlink" title="3、SparseArray"></a>3、SparseArray</h2><p>用来替换  HashMap&lt;Integer,E&gt;，实现原理跟 ArrayMap 相同；</p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h3><pre><code>避免int类型的键自动装箱
-相较于HashMap使用Node，这样的设计使用更小的存储单元即可存储key到value的映射
-</code></pre><h3 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h3><pre><code>在进行元素查找时使用二分查找，元素较多（官方注释是大于1000）时，查找效率较低；
-在进行元素的添加和删除时，可能会频繁进行元素的移动，运行效率可能会降低
-</code></pre><p>剩下几个 SparseIntArray 、SparseBooleanArray 、SparseLongArray 都是类似，不再赘述。</p>
+        <h1 id="为什么是-Parcelable-？"><a href="#为什么是-Parcelable-？" class="headerlink" title="为什么是 Parcelable ？"></a>为什么是 Parcelable ？</h1><p>首先，理解一个基础知识点，linux内核是分为内核空间和用户空间的， 其中内核空间是被内核系统所使用，而用户空间则是属于应用程序使用的；<br>为什么这么划分，而不是把所有空间都分给应用程序呢？ 因为系统是公共的，只有一个，而应用程序是有很多个，来自不同的开发者；如果某个应用程序导致所有空间不可用，<br>那么系统就完全死了；而内核空间的隔离保证了系统的稳定性。 </p>
+<p>再说序列化，</p>
+<h1 id="什么是序列化？"><a href="#什么是序列化？" class="headerlink" title="什么是序列化？"></a>什么是序列化？</h1><p>序列化的意思就是把对象数据以二进制的形式形成一定的序列结构；<br>比如原本一个对象是 List 列表结构，可以变成一个文件格式，反序列化后又可以变成一个List.</p>
+<h3 id="1、哪里需要序列化的数据？"><a href="#1、哪里需要序列化的数据？" class="headerlink" title="1、哪里需要序列化的数据？"></a>1、哪里需要序列化的数据？</h3><p>对于不同上下文环境的跨进程数据来说，在数据库、网络流或者RMI 远程调用中，对象不能直接透传到另一个进程，<br>这是由于每个进程有自己的内存空间，相互之间不能直接访问别人的内存空间；所以，要传输的数据必须以进程间认可的中介数据形式才可以传输过去；</p>
+<p>序列化二进制流就是可以在进程间流通的数据形式；</p>
+<h3 id="2、Serializable-VS-Parcelable"><a href="#2、Serializable-VS-Parcelable" class="headerlink" title="2、Serializable VS Parcelable"></a>2、Serializable VS Parcelable</h3><p>Serializable 是 java 提供的API ，它的实现原理是 把实现了Serializable 接口的类所有的属性数据全部通过 ObjectInputStream 读取数据、ObjectOutputStream<br>写入数据；  而从ObjectInputStream 与 ObjectOutputStream 源码中可知，其实现细节就是将对象的基本类型数据，一一转换成字节流，最后写入文件中。</p>
+<p>将序列化后的文件以txt格式去打开，就发现，里面都是16进制的字节码， 内容大概如下: </p>
+<p>aced 0005 7372 0011 636f 6d2e 6578 616d …</p>
+<p>如果你看过class文件的字节码内容，就会知道，对于这种自定义的格式文件，一定会有自己的协议规则。<br>序列化也不例外。</p>
+<p>aced 是魔数，声明使用了 序列化协议，而不是其他的协议；<br>0005 序列化版本号；<br>7372 声明这是一个新的对象；<br>…其他细节就不再多说，具体可以在 ObjectStreamConstants.java 这个类中找到。</p>
+<p>既然有了Serializable 为什么 android 还不满足呢 ？<br>因为 Serializable 是最终把数据序列化到本地文件的，过程中使用了过多的临时变量，会频繁引起GC，并且最终需要写入写出文件，IO操作多，所以效率低，<br>谷歌希望在内存间传输数据时，效率能再高一些，并且不需要IO操作，于是就发明了 Parcelable。</p>
+<p>Parcelable 比 Serializable 好在哪里呢 ？ </p>
+<p>Parcelable 其中使用了 Parcel ，而Parcel 在java 层提供调用的API writeString、writeByte等，最终实际调用的是 JNI层的方法，把基本数据类型一一<br>转换成二进制缓存数组；那么，为什么使用C/C++ 代码 ？因为 Parcel 是被设计成跨进程通信的， 数据会从用户空间上映射到 内核空间 ，然后再映射到另一个进程的用户空间上，<br>相对于 java来说， 因为无需经过JVM, 可以直接操作内存数据， 所以 C/C++ 读取内存数据更有效率。 </p>
+<h3 id="3、选择"><a href="#3、选择" class="headerlink" title="3、选择"></a>3、选择</h3><p>当需要把数据落地到本地或者 远程调用时， 此时应该选择 Serializable；<br>当仅仅需要把数据在内存中传输时，那可以选择 Parcelable， 效率更高。 </p>
 
       
     </div>
@@ -472,15 +478,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/06/02/Android-那些性能更好的数据结构/" rel="next" title="Android 那些性能更好的数据结构">
+                <i class="fa fa-chevron-left"></i> Android 那些性能更好的数据结构
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/22/为什么是Parcelable/" rel="prev" title="深入了解 Android 中的数据传输 Parcelable">
-                深入了解 Android 中的数据传输 Parcelable <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -591,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、ArrayMap"><span class="nav-number">1.</span> <span class="nav-text">1、ArrayMap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、ArraySet"><span class="nav-number">2.</span> <span class="nav-text">2、ArraySet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、SparseArray"><span class="nav-number">3.</span> <span class="nav-text">3、SparseArray</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">3.1.</span> <span class="nav-text">优点:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点："><span class="nav-number">3.2.</span> <span class="nav-text">缺点：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么是-Parcelable-？"><span class="nav-number">1.</span> <span class="nav-text">为什么是 Parcelable ？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是序列化？"><span class="nav-number">2.</span> <span class="nav-text">什么是序列化？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、哪里需要序列化的数据？"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、哪里需要序列化的数据？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、Serializable-VS-Parcelable"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、Serializable VS Parcelable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、选择"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、选择</span></a></li></ol></li></ol></div>
             
 
           </div>
